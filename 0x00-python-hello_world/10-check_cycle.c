@@ -11,10 +11,7 @@ int check_cycle(listint_t *list)
 	listint_t *frist = list;
 	listint_t *second = list;
 
-	if (list == NULL)
-		return (0);
-
-	while (frist && second && frist->next && second->next->next)
+	while (frist && second && second->next)
 	{
 		frist = frist->next;
 		second = second->next->next;
