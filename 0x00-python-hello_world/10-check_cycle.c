@@ -14,7 +14,7 @@ int check_cycle(listint_t *list)
 	if (list == NULL)
 		return (0);
 
-	while (frist && second && frist->next)
+	while (frist && second && frist->next && second->next->next)
 	{
 		frist = frist->next;
 		second = second->next->next;
