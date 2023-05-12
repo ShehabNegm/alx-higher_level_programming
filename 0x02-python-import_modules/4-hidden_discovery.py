@@ -6,6 +6,6 @@ if __name__ == "__main__":
 
     hidden = dir(hidden_4)
 
-    for i in dir(hidden):
+    for i in hidden:
         if i[0] and i[1] != "_":
             print("{}".format(i))
