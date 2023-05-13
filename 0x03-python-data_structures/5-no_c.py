@@ -2,12 +2,10 @@
 def no_c(my_string):
     """function to remove c and C from any string given"""
 
-    if my_string:
+    new_string = ""
 
-        new_string = ""
+    for i in my_string:
+        if i != 'c' and i != 'C':
+            new_string += i
 
-        for i in my_string:
-            if i != 'c' and i != 'C':
-                new_string += i
-
-        return new_string
+    return new_string
