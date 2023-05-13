@@ -1,4 +1,4 @@
-#!/usr/bin/oython3
+#!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
     """function to retutn a tuple of sum of 2 tuples"""
 
