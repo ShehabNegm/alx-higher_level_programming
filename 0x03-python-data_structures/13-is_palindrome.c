@@ -56,8 +56,8 @@ int is_palindrome(listint_t **head)
 	listint_t *r_head, *l_head, *reversed_head, *tmp;
 
 	if (*head == NULL)
-		return (1);
-	
+		return (0);
+
 	if ((*head)->next == NULL)
 		return (0);
 
@@ -67,10 +67,7 @@ int is_palindrome(listint_t **head)
 	if (length == 1)
 		return (0);
 
-	if (length % 2 == 0)
-		count = length / 2;
-	else
-		count = (length / 2);
+	count = (length / 2);
 
 	for (i = 0; i <= count; i++)
 		tmp = tmp->next;
