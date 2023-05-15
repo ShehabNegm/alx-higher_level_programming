@@ -61,6 +61,9 @@ int is_palindrome(listint_t **head)
 	tmp = *head;
 	length = list_len(tmp);
 
+	if (length == 1)
+		return (0);
+
 	if (length % 2 == 0)
 		count = length / 2;
 	else
