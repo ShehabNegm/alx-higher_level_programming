@@ -70,7 +70,7 @@ int is_palindrome(listint_t **head)
 	if (length % 2 == 0)
 		count = length / 2;
 	else
-		count = (length / 2) + 1;
+		count = (length / 2);
 
 	for (i = 0; i <= count; i++)
 		tmp = tmp->next;
