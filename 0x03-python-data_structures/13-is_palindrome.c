@@ -56,10 +56,10 @@ int is_palindrome(listint_t **head)
 	listint_t *r_head, *l_head, *reversed_head, *tmp;
 
 	if (*head == NULL)
-		return (0);
+		return (1);
 
 	if ((*head)->next == NULL)
-		return (0);
+		return (1);
 
 	tmp = *head;
 	length = list_len(tmp);
