@@ -17,17 +17,6 @@ class Square:
         self.__size = size
         self.__position = position
 
-        if type(self.__size) != int:
-            raise TypeError("size must be an integer")
-        if self.__size < 0:
-            raise ValueError("size must be >= 0")
-
-        if (not isinstance(position, tuple) or
-                position[0] < 0 or
-                position[1] < 0 or
-                len(position) > 2):
-            raise TypeError("position must be a tuple of 2 positive integers")
-
     @property
     def size(self):
         """get the size of the square"""
@@ -51,6 +40,14 @@ class Square:
     def position(self, value):
         """set the value of a position)"""
         self.__position = value
+
+        if (not isinstance(position, tuple) or
+                value[0] < 0 or
+                value[1] < 0 or
+                len(value) != 2 or
+                type(value[0]) != int or
+                type(value[1]) != int):
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     def area(self):
         """function to return area of square"""
