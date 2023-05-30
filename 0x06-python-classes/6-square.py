@@ -41,7 +41,7 @@ class Square:
         """set the value of a position)"""
         self.__position = value
 
-        if (not isinstance(position, tuple) or
+        if (not isinstance(value, tuple) or
                 value[0] < 0 or
                 value[1] < 0 or
                 len(value) != 2 or
@@ -59,15 +59,16 @@ class Square:
         poX = self.__position[0]
         poY = self.__position[1]
 
+        if i == 0:
+            print()
+            return
+
         for row in range(poY):
             print()
 
-        if i == 0:
+        for k in range(i):
+            for col in range(poX):
+                print(" ", end="")
+            for j in range(i):
+                print("#", end="")
             print()
-        else:
-            for k in range(i):
-                for col in range(poX):
-                    print(" ", end="")
-                for j in range(i):
-                    print("#", end="")
-                print()
