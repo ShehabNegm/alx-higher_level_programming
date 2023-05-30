@@ -14,8 +14,8 @@ class Square:
             raise TypeError if size is not int
             raiseValue error if size is less than zero
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
