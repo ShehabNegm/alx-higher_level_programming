@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# 1-square.py
+"""class square and its first arrtribute"""
+
+
 class Square:
     """class square created"""
 
