@@ -74,7 +74,7 @@ class SinglyLinkedList:
     def __str__(self):
         """define print method of the singly linked list"""
         if self.__head is None:
-            return
+            return ""
         tmp = self.__head
         while tmp.next_node is not None:
             print(tmp.data)
