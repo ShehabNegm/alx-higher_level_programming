@@ -1,0 +1,18 @@
+"""this file is to test 5-text_identication task"""
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("shehab. negm")
+shehab.
+<BLANKLINE>
+negm
+
+>>> text_indentation(420)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation("shehab.. negm")
+shehab.
+<BLANKLINE>
+.
+<BLANKLINE>
+negm
