@@ -1,0 +1,30 @@
+"""this module will work as a test for python add integers function"""
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(2, 5)
+7
+
+>>> add_integer(-1)
+97
+
+>>> add_integer('str')
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer(0, 'shehab')
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer(1.2, 1.5)
+2
+
+>>> add_integer(0)
+98
+
+>>> add_integer ('test', 'this')
+Traceback (most recent call last):
+TypeError: a must be an integer
+
+>>> add_integer (1000, 69)
+1069
+
