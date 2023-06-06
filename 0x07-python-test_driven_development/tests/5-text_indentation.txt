@@ -16,3 +16,14 @@ shehab.
 .
 <BLANKLINE>
 negm
+
+>>> text_indentation("shehab..?       ne  gm? lol")
+shehab.
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+ne  gm?
+<BLANKLINE>
+lol
