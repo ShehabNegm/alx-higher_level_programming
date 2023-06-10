@@ -27,3 +27,7 @@ shehab.
 ne  gm?
 <BLANKLINE>
 lol
+
+>>> text_indentation("")
+
+

@@ -20,3 +20,6 @@ My name is Amira Khaled negm
 
 >>> say_my_name('Amira Khaled')
 My name is Amira Khaled 
+
+>>> say_my_name("")
+My name is  
