@@ -1,0 +1,48 @@
+"""
+this test file is for testing task my list 
+MyList class will inherent all is arrtibutes and methods from 
+list python class
+
+Input : we can assume that all input will be inttegers
+Return: it should return a sorted list of the object
+"""
+
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.print_sorted()
+[1]
+
+>>> L1 = MyList()
+>>> L1.append(9)
+>>> L1.append(6)
+>>> print(L1)
+[9, 6]
+
+>>> L1.print_sorted()
+[6, 9]
+
+>>> L1.pop()
+6
+
+>>> print(L1)
+[9]
+
+>>> L2 = MyList()
+>>> L2.append(0)
+>>> L2.append(-1)
+>>> L2.append(-1)
+>>> L2.append(2)
+>>> L2.append(6)
+>>> L2.append(100)
+>>> L2.append(200)
+>>> L2.append(77)
+>>> print(L2)
+[0, -1, -1, 2, 6, 100, 200, 77]
+
+>>> L2.print_sorted()
+[-1, -1, 0, 2, 6, 77, 100, 200]
+
+>>> Lempty = MyList()
+>>> Lempty.print_sorted()
+[]
