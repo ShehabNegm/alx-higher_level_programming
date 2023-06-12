@@ -21,3 +21,8 @@ ValueError: iamzero must be greater than 0
 >>> bg3 = BaseGeometry()
 >>> bg2.integer_validator("iamfine", 16)
 
+>>> bg4 = BaseGeometry()
+>>> bg2.integer_validator("", True)
+Traceback (most recent call last):
+TypeError:  must be an integer
+
