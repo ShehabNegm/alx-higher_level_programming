@@ -65,6 +65,14 @@ TypeError: invd must be an integer
 Traceback (most recent call last):
 TypeError: am None must be an integer
 
+>>> bg.area()
+Traceback (most recent call last):
+Exception: area() is not implemented
+
+>>> print(bg.integer_validator) # doctest: +ELLIPSIS
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
+
+
 
 
 
