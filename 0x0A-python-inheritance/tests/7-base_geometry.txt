@@ -31,3 +31,24 @@ TypeError:  must be an integer
 Traceback (most recent call last):
 Exception: area() is not implemented
 
+>>> bg = BaseGeometry(None)
+Traceback (most recent call last):
+TypeError: BaseGeometry() takes no arguments
+
+>>> bg = BaseGeometry()
+>>> type(bg)
+<class '7-base_geometry.BaseGeometry'>
+
+>>> bg.integer_validator()
+Traceback (most recent call last):
+TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+>>> bg.integer_validator(None)
+Traceback (most recent call last):
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+>>> bg.integer_validator({"this is a lot": 98}, [1, 2])
+Traceback (most recent call last):
+TypeError: {'this is a lot': 98} must be an integer
+
+
