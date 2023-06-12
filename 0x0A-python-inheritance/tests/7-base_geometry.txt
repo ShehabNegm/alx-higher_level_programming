@@ -1,0 +1,23 @@
+"""
+this file is to test class base geometery
+"""
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("side", "lol")
+Traceback (most recent call last):
+TypeError: side must be an integer
+
+>>> bg1 = BaseGeometry()
+>>> bg1.integer_validator("subzero", -1)
+Traceback (most recent call last):
+ValueError: subzero must be greater than 0
+
+>>> bg2 = BaseGeometry()
+>>> bg2.integer_validator("iamzero", 0)
+Traceback (most recent call last):
+ValueError: iamzero must be greater than 0
+
+>>> bg3 = BaseGeometry()
+>>> bg2.integer_validator("iamfine", 16)
+
