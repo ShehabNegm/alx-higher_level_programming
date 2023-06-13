@@ -8,6 +8,11 @@ this file is to test class base geometery
 Traceback (most recent call last):
 TypeError: side must be an integer
 
+>>> bg.integer_validator("one", {3, 2})
+Traceback (most recent call last):
+TypeError: one must be an integer
+
+
 >>> bg1 = BaseGeometry()
 >>> bg1.integer_validator("subzero", -1)
 Traceback (most recent call last):
