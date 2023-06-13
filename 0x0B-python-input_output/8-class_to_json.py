@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""function to returns the dictionary description for JSON"""
 import json
+"""function to returns the dictionary description for JSON"""
 
 
 def class_to_json(obj):
