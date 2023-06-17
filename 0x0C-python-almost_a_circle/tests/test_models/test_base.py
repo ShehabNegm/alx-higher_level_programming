@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """unittest for Base class file base.py"""
 
-
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     """class to test using unittest module"""
-    
+
     def test_base_id_empty(self):
         """function to test base id empty"""
 
