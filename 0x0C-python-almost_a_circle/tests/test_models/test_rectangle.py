@@ -447,3 +447,27 @@ class testRectangle_display(unittest.TestCase):
         r = Rectangle(2, 3, 0, 0, 12)
         with self.assertRaises(TypeError):
             r.display(2)
+
+
+class testRectangle_str(unittest.TestCase):
+    """class to test __str__ method of the class"""
+
+    def test_rec_str_normal(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(4, 6, 2, 1, 1)
+            print(r)
+            self.assertEqual(f.getvalue().strip(), '[Rectangle] (1) 2/1 - 4/6')
+
+    def test_rec_str_x(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(4, 6, 2)
+            print(r1)
+            output = "[Rectangle] ({}) 2/0 - 4/6".format(r1.id)
+            self.assertEqual(f.getvalue().strip(), output)
+
+    def test_rec_str(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(4, 6)
+            print(r1)
+            output = "[Rectangle] ({}) 0/0 - 4/6".format(r1.id)
+            self.assertEqual(f.getvalue().strip(), output)

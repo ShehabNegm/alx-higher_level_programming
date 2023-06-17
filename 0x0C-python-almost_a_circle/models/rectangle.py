@@ -92,3 +92,9 @@ class Rectangle(Base):
             for j in range(self.width):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """function to print rectangle info to stdout"""
+
+        return ("[Rectangle] (" + str(self.id) + ") " + str(self.x) + "/" +
+                str(self.y) + " - " + str(self.width) + "/" + str(self.height))
