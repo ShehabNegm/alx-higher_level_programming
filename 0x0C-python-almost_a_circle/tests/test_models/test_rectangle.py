@@ -367,3 +367,54 @@ class testRectangle_y(unittest.TestCase):
     def test_y_complex(self):
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
             Rectangle(1, 2, 3, complex(2))
+
+
+class testRectangle_ErrorPriority(unittest.TestCase):
+    """class to test error printing priority"""
+
+    def test_width_before_height(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("lol", "lol2")
+
+    def test_width_before_x(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("lol", 2, "X")
+
+    def test_width_before_y(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("lol", 2, 3, "y")
+
+    def test_x_before_y(self):
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(1, 1, "x", "y")
+
+
+class testRectangle_area(unittest.TestCase):
+    """class to test area method of the rectangle"""
+
+    def test_area_normal(self):
+        r = Rectangle(2, 4)
+        self.assertEqual(r.area(), 8)
+
+    def test_area_x(self):
+        r = Rectangle(4, 5, 6)
+        self.assertEqual(r.area(), 20)
+
+    def test_area_y(self):
+        r = Rectangle(1, 1, 1, 4)
+        self.assertEqual(r.area(), 1)
+
+    def test_area_id(self):
+        r = Rectangle(2, 2, 2, 2, 17)
+        self.assertEqual(r.area(), 4)
+
+    def test_area_changeArg(self):
+        r = Rectangle(2, 6)
+        r.width = 12
+        r.height = 10
+        self.assertEqual(r.area(), 120)
+
+    def test_area_error(self):
+        r = Rectangle(12, 10)
+        with self.assertRaises(TypeError):
+            r.area(7)
