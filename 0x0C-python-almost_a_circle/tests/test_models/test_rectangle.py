@@ -63,7 +63,7 @@ class testRectangle(unittest.TestCase):
         """test class rectangle with mixed ids"""
         r1 = Rectangle(4, 6)
         r2 = Rectangle(10, 12)
-        r3 = Rectangle(0, 1, 0, 0, 128)
+        r3 = Rectangle(2, 1, 0, 0, 128)
         r4 = Rectangle(12, 24)
         self.assertEqual(r1.id, r2.id - 1)
         self.assertEqual(r3.id, 128)
@@ -73,10 +73,10 @@ class testRectangle(unittest.TestCase):
         """test class rectangle width arrtibute"""
         r = Rectangle(3, 4)
         r1 = Rectangle(12, 24, 0, 1)
-        r2 = Rectangle(0, 0, 0, 0, 0)
+        r2 = Rectangle(1, 1, 1, 1, 0)
         self.assertEqual(r.width, 3)
         self.assertEqual(r1.width, 12)
-        self.assertEqual(r2.width, 0)
+        self.assertEqual(r2.width, 1)
 
     def test_rec_height_getter(self):
         """test class rectangle height"""
@@ -140,3 +140,62 @@ class testRectangle(unittest.TestCase):
         r = Rectangle(1, 2, 3, 4)
         r.id = 177
         self.assertEqual(r.id, 177)
+
+
+class testRectangle_width(unittest.TestCase):
+    """class to unittest rectangle width"""
+
+    def test_width_normal(self):
+        """test rec width"""
+        r = Rectangle(1, 2)
+        r.width = 3
+        self.assertEqual(r.width, 3)
+
+    def test_width_zero(self):
+        """test rec width zero"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(0, 12)
+
+    def test_width_negative(self):
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(-2, 12)
+
+    def test_width_str(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("lol", 12)
+
+    def test_width_float(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(1.2, 4)
+
+    def test_width_list(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle([1, 2], 1)
+
+    def test_width_tuple(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle((1, 2), 13)
+
+    def test_width_dict(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({}, 1)
+
+    def test_width_range(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(range(12), 7)
+
+    def test_width_bool(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(True, 7)
+
+    def test_width_inf(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(float('inf'), 8)
+
+    def test_width_nan(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle(float('nan'), 17)
+
+    def test_width_set(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle({1, 2, 3, 4}, 6)
