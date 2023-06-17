@@ -2,6 +2,8 @@
 """unittest for Rectangle class"""
 
 import unittest
+from io import StringIO
+from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 
@@ -418,3 +420,30 @@ class testRectangle_area(unittest.TestCase):
         r = Rectangle(12, 10)
         with self.assertRaises(TypeError):
             r.area(7)
+
+
+class testRectangle_display(unittest.TestCase):
+    """class to test display() class method"""
+
+    def test_rec_display_one(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(1, 1)
+            r.display()
+            self.assertEqual(f.getvalue(), '#\n')
+
+    def test_rec_display_sqr(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(2, 2, 0, 0, 12)
+            r.display()
+            self.assertEqual(f.getvalue(), '##\n##\n')
+
+    def test_rec_display_rec(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(3, 4)
+            r.display()
+            self.assertEqual(f.getvalue(), '###\n###\n###\n###\n')
+
+    def test_rec_display_error(self):
+        r = Rectangle(2, 3, 0, 0, 12)
+        with self.assertRaises(TypeError):
+            r.display(2)
