@@ -539,3 +539,15 @@ class testRectangle_update_kwargs(unittest.TestCase):
             print(r1)
             output = "[Rectangle] (77) 10/10 - 2/10"
             self.assertEqual(f.getvalue().strip(), output)
+
+
+class testRectangle_Dict_json(unittest.TestCase):
+    """class to test dictionary rep and json class methods"""
+
+    def test_rec_dict(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 2, 1, 9, 12)
+            r1_dictionary = r1.to_dictionary()
+            print(r1_dictionary)
+            output = "{'id': 12, 'width': 10, 'x': 1, 'y': 9, 'height': 2}"
+            self.assertEqual(f.getvalue().strip(), output)
