@@ -483,3 +483,39 @@ class testRectangle_str(unittest.TestCase):
             print(r1)
             output = "[Rectangle] ({}) 0/0 - 4/6".format(r1.id)
             self.assertEqual(f.getvalue().strip(), output)
+
+
+class testRectangle_update(unittest.TestCase):
+    """class to test update() class method"""
+
+    def test_rec_update_empty(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update()
+            print(r1)
+            output = "[Rectangle] ({}) 10/10 - 10/10".format(r1.id)
+            self.assertEqual(f.getvalue().strip(), output)
+
+    def test_rec_update_id(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(69)
+            print(r1)
+            output = "[Rectangle] (69) 10/10 - 10/10"
+            self.assertEqual(f.getvalue().strip(), output)
+
+    def test_rec_update_width(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(89, 2)
+            print(r1)
+            output = "[Rectangle] (89) 10/10 - 2/10"
+            self.assertEqual(f.getvalue().strip(), output)
+
+    def test_rec_update_all(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(89, 2, 3, 4, 5, 7)
+            print(r1)
+            output = "[Rectangle] (89) 4/5 - 2/3"
+            self.assertEqual(f.getvalue().strip(), output)
