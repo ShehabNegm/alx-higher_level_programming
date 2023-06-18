@@ -58,3 +58,12 @@ class testSquare(unittest.TestCase):
             print(s1)
             output = "[Square] (1) 3/4 - 2"
             self.assertEqual(f.getvalue().strip(), output)
+
+    def test_sqr_update_args_kwargs(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            s1 = Square(5)
+            s1.update(1, 2, 3, 4)
+            s1.update(id=89, x=12, size=7, y=1)
+            print(s1)
+            output = "[Square] (89) 12/1 - 7"
+            self.assertEqual(f.getvalue().strip(), output)
