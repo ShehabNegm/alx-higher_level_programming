@@ -448,6 +448,18 @@ class testRectangle_display(unittest.TestCase):
         with self.assertRaises(TypeError):
             r.display(2)
 
+    def test_rec_display_x(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(2, 3, 1)
+            r.display()
+            self.assertEqual(f.getvalue(), ' ##\n ##\n ##\n')
+
+    def test_rec_display_xy(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r = Rectangle(2, 3, 1, 1)
+            r.display()
+            self.assertEqual(f.getvalue(), '\n ##\n ##\n ##\n')
+
 
 class testRectangle_str(unittest.TestCase):
     """class to test __str__ method of the class"""
