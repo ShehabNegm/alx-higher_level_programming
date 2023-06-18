@@ -519,3 +519,23 @@ class testRectangle_update(unittest.TestCase):
             print(r1)
             output = "[Rectangle] (89) 4/5 - 2/3"
             self.assertEqual(f.getvalue().strip(), output)
+
+
+class testRectangle_update_kwargs(unittest.TestCase):
+    """class to test kwargs as part of update class method"""
+
+    def test_rec_update_kwargs1(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(height=1, id=12)
+            print(r1)
+            output = "[Rectangle] (12) 10/10 - 10/1"
+            self.assertEqual(f.getvalue().strip(), output)
+
+    def test_rec_update_arg_kwarg(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            r1 = Rectangle(10, 10, 10, 10)
+            r1.update(77, 2, height=1, id=69)
+            print(r1)
+            output = "[Rectangle] (77) 10/10 - 2/10"
+            self.assertEqual(f.getvalue().strip(), output)

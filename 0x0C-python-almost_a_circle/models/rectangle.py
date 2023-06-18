@@ -101,16 +101,21 @@ class Rectangle(Base):
         return ("[Rectangle] (" + str(self.id) + ") " + str(self.x) + "/" +
                 str(self.y) + " - " + str(self.width) + "/" + str(self.height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """class method that updates rectangle class using args"""
         L = list(args)
 
-        try:
-            self.id = L[0]
-            self.width = L[1]
-            self.height = L[2]
-            self.x = L[3]
-            self.y = L[4]
+        if args and len(L) != 0:
+            try:
+                self.id = L[0]
+                self.width = L[1]
+                self.height = L[2]
+                self.x = L[3]
+                self.y = L[4]
 
-        except IndexError:
-            pass
+            except IndexError:
+                pass
+
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
