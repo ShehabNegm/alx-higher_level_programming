@@ -67,3 +67,11 @@ class testSquare(unittest.TestCase):
             print(s1)
             output = "[Square] (89) 12/1 - 7"
             self.assertEqual(f.getvalue().strip(), output)
+
+    def test_sqr_dict(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            s1 = Square(10, 2, 1, 18)
+            s1_dictionary = s1.to_dictionary()
+            print(s1_dictionary)
+            output = "{'id': 18, 'x': 2, 'size': 10, 'y': 1}"
+            self.assertEqual(f.getvalue().strip(), output)
