@@ -2,6 +2,7 @@
 # base.py
 """class base"""
 import json
+import os.path
 
 
 class Base:
@@ -64,3 +65,22 @@ class Base:
                 r = cls(1)
             r.update(**dictionary)
             return r
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+
+        filename = "./" + cls.__name__ + ".json"
+
+        if not os.path.isfile(filename):
+            return []
+
+        else:
+            filename = cls.__name__ + ".json"
+
+            with open(filename, "r") as f:
+                list_string = f.read()
+
+            L = Base.from_json_string(list_string)
+            L_inst = [cls.create(**i) for i in L]
+            return L_inst
