@@ -39,5 +39,5 @@ class Base:
             L.append(i.to_dictionary())
 
         obj = Base.to_json_string(L)
-        with open(filename, 'w', encoding='utf-8') as f:
-            json.dump(obj, f)
+        with open(filename, 'w') as f:
+            f.write(str(obj))
