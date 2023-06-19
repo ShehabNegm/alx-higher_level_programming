@@ -40,4 +40,8 @@ class Base:
 
         obj = Base.to_json_string(L)
         with open(filename, 'w') as f:
-            f.write(str(obj))
+
+            if list_objs == []:
+                f.write("[]")
+            else:
+                f.write(obj)
