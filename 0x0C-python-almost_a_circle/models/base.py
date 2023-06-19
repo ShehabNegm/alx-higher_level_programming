@@ -3,6 +3,7 @@
 """class base"""
 import json
 import os.path
+import csv
 
 
 class Base:
@@ -84,3 +85,48 @@ class Base:
             L = Base.from_json_string(list_string)
             L_inst = [cls.create(**i) for i in L]
             return L_inst
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes in csv"""
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as f:
+
+            if list_objs is None:
+                f.write("[]")
+
+            else:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+
+                if cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+
+                w = csv.DictWriter(f, fieldnames=fields)
+                for i in list_objs:
+                    w.writerow(i.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes in CSV"""
+
+        filename = "./" + cls.__name__ + ".csv"
+
+        if not os.path.isfile(filename):
+            return []
+
+        else:
+            filename = cls.__name__ + ".csv"
+
+            with open(filename, "r") as f:
+                if cls.__name__ == "Rectangle":
+                    fields = ["id", "width", "height", "x", "y"]
+
+                if cls.__name__ == "Square":
+                    fields = ["id", "size", "x", "y"]
+
+                L = csv.DictReader(f, fieldnames=fields)
+                L = [dict([k, int(v)] for k, v in d.items())
+                     for d in L]
+                return [cls.create(**i) for i in L]
