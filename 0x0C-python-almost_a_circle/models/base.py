@@ -56,6 +56,7 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
 
-        r = cls(1, 2, 3, 4)
-        r.update(**dictionary)
-        return r
+        if dictionary and dictionary != {}:
+            r = cls(1, 2)
+            r.update(**dictionary)
+            return r
