@@ -57,6 +57,6 @@ class Base:
         """returns an instance with all attributes already set"""
 
         if dictionary and dictionary != {}:
-            r = cls(1, 2)
+            r = cls(1, 1)
             r.update(**dictionary)
             return r
