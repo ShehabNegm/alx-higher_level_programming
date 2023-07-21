@@ -1,5 +1,5 @@
 -- script to count shows by geners
-SELECT tv_genres.name AS genre, 
+SELECT tv_genres.name, 
 SUM(tv_show_ratings.rate) AS rating
 FROM tv_genres
 INNER JOIN tv_show_genres
