@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""python script to connect to db using MySQLdb"""
 
 if __name__ == "__main__":
 
