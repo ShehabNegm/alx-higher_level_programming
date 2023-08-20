@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 # model_state.py
 """ define state class """
 
