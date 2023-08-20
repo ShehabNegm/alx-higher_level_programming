@@ -20,8 +20,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    if session.query(State).count() == 0:
-        print("Nothing")
 
     states = session.query(State).filter(State.name.like('%a%'))
 
