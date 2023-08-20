@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # 7-model_state_fetch_all.py
+"""import a model and fitch its results"""
 
 from sys import argv
 from model_state import Base, State
