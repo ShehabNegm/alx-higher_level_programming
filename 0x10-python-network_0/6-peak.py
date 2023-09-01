@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""find a peak"""
+
+
 def find_peak(list_of_integers):
     """find a peak on unsorted list"""
 
@@ -11,12 +14,12 @@ def find_peak(list_of_integers):
     mid = lo + ((hi - lo) // 2)
     if hi == 1:
         return st[0]
-    elif hi == 2:
+    if hi == 2:
         return max(st)
-    else:
-        if st[mid] >= st[mid - 1] and st[mid] >= st[mid + 1]:
-            return st[mid]
-        elif st[mid] < st[mid - 1] and mid > 0:
-            return find_peak(st[:mid])
-        elif st[mid] < st[mid + 1] and mid > 0:
-            return find_peak(st[mid:])
+
+    if st[mid] >= st[mid - 1] and st[mid] >= st[mid + 1]:
+        return st[mid]
+    if st[mid] < st[mid - 1] and mid > 0:
+        return find_peak(st[:mid])
+    if st[mid] < st[mid + 1] and mid > 0:
+        return find_peak(st[mid:])
